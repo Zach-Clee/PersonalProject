@@ -1,9 +1,19 @@
 var geolat;
 var geolong;
+
+
+function notDisabled(){
+  var boatname = document.getElementById("boatname");
+  boatname.disabled = false;
+}
+function isDisabled(){
+  var boatname = document.getElementById("boatname");
+  boatname.value = "";
+  boatname.disabled = true;
+}
+
 function deleteRequest(){
-
 if (deleteConfirmation()){
-
 const Http = new XMLHttpRequest();
 const url='http://35.246.94.238:9002/deleteById/';
 Http.open("DELETE", url,true);
