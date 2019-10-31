@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dive Log</title>
+  <link href="StyleSheet.css" rel="stylesheet">
+  <link>
+<style>
+  body {
+background-color: #666;
+
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;}
+table {
+  font-family: arial, sans-serif;
+  padding-left: 10px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  <a href="AddPage.html">
+}
+
+tr:nth-child(even) {
+  background-color: #grey;
+}
+tr:nth-child(odd) {
+  background-color: grey;
+}
+
+.button {
+  background-color: #0059b3;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body onload="studentsToTable()">
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+    <a href="AddPage.html">Add</a>
+  <a href="Map.html">Map</a>
+</div>
+<h1 style="padding-left: 10px;">Your Dive Log</h1>
+
+<table id="Results">
+  <tr style="background-color: grey">
+    <th>Dive Number</th>
+    <th>Loction</th>
+    <th>Dive Date</th>
+    <th>Weight</th>
+  </tr>
+</table>
+</body>
+
+
+<script src="index.js">
+
+
+</script>
+</html>
+

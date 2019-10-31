@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dive Log</title>
+  <link href="StyleSheet.css" rel="stylesheet">
+  <link rel="script" href="script.js">
+</head>
+<body onload="getId()">
+
+<style>
+        #map {
+        height: 350px;
+        width: 350px;
+      }
+      #infowindow-content .title {
+        font-weight: bold;
+      }
+      #infowindow-content {
+        display: none;
+      }
+      #map #infowindow-content {
+        display: inline;
+      }
+body {
+background-color: #666;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;}
+</style>
+
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+    <a href="AddPage.html">Add</a>
+  <a href="Map.html">Map</a>
+</div>
+
+<div style="padding-left:15px">
+  <p>Fill out the form below and click the 'Save' button to add a new dive to your log.</p>
+</div>
+<form>
+    <div style="position: absolute; top: 125px; left: 30px;">
+      Location : 
+      <br><br>
+      Start Time of Dive : 
+      <br><br>
+      Air at Start of Dive : 
+      <br><br>
+      Dive Master/   : <br>
+      Partner
+    </div>
+
+    <div id="pac-card" style="position: absolute; top: 125px; left: 200px;">
+      <div id="pac-container">
+        <input id="pac-input" type="text"
+            placeholder="Enter a location">
+      </div><br>
+      <input class="inputBox" type="Time" step="1" name="startime" id="starttime">
+      <br><br>
+      <input class="inputBox" type="text" name="startingair" id="startingair">
+      <br><br>
+      <input class="inputBox" type="text" name="partner" id="partner">
+    </div>
+
+    <div style="position: absolute; top: 125px; left: 450px;">
+      Dive Date : 
+      <br><br>
+      Finish Time of Dive : 
+      <br><br>
+      Air at End of Dive :
+    </div>
+
+    <div style="position: absolute; top: 125px; left: 600px;">
+      <input class="inputBox" type="Date" name="divedate" id="divedate">
+      <br><br>
+      <input class="inputBox" type="Time" step="1" name="finishtime" id="finishtime">
+      <br><br>
+      <input class="inputBox" type="text" name="finishingair" id="finishingair">
+    </div>
+
+<form>
+    <div style="position: absolute; top: 340px; left: 30px;">
+      Scuba : 
+      <br><br>
+      Snorkel :
+    </div>
+
+    <div style="position: absolute; top: 330px; left: 50px;">
+      <input class="inputBox" type="radio" value = "scuba" name="divetype" id="scuba">
+      <br><br>
+      <input class="inputBox" type="radio" value = "snorkel" name="divetype" id="snorkel">
+    </div>
+</form>
+
+<form>
+    <div style="position: absolute; top: 340px; left: 200px;">
+      Boat : 
+      <br><br>
+      Pier / Shore :
+    </div>
+
+    <div style="position: absolute; top: 330px; left: 220px;">
+      <input class="inputBox" type="radio" value="Boat" name="accesstype" id="boat">
+      <br><br>
+      <input class="inputBox" type="radio" value="Pier" name="accesstype" id="pier">
+    </div>
+  </form>
+
+    <div style="position: absolute; top: 340px; left: 370px;">
+      Boat Name :
+    </div>
+    <div style="position: absolute; top: 330px; left: 480px;">
+      <input class="inputBox" type="text" name="boatname" id="boatname">
+    </div>
+
+    <form>
+    <div style="position: absolute; top: 415px; left: 30px;">
+      Salt Water : 
+      <br><br>
+     </div> 
+    <div style="position: absolute; top: 415px; left: 50px;">
+      <input class="inputBox" value="Salt" type="radio" name="watertype" id="Salt">
+    </div>
+
+    <div style="position: absolute; top: 415px; left: 200px;">
+      Fresh Water : 
+      <br><br>
+     </div> 
+    <div style="position: absolute; top: 415px; left: 220px;">
+      <input class="inputBox" value="Fresh" type="radio" name="watertype" id="Fresh">
+    </div>
+    </form>
+
+    <div style="position: absolute; top: 460px; left: 30px;">
+      Visability : 
+      <br><br>
+      Weights :
+      <br><br>
+      Comments :
+    </div>
+
+    <div style="position: absolute; top: 460px; left: 200px;">
+      <input class="inputBox" type="number" name="visability" id="visability">
+      <br><br>
+      <input class="inputBox" type="number" name="weight" id="weight">
+      <br><br>
+      <input class="inputBox" type="text" name="comments" id="comments">
+    </div>
+
+    <div style="position: absolute; top: 460px; left: 450px;">
+      Weather : 
+      <br><br>
+      Max Depth :
+    </div>
+
+    <div style="position: absolute; top: 460px; left: 600px;">
+      <input class="inputBox" type="text" name="Weather" id="weather">
+      <br><br>
+      <input class="inputBox" type="number" name="maxdepth" id="maxdepth">
+    </div>
+
+    <label value="" id="idNumber" style="visibility: hidden;"></label>
+    
+
+    <div id="map" style="position: absolute; right: 50px"></div>
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>2
+      <span id="place-address"></span>
+    </div>
+
+</form>
+<div style="position: absolute; top: 500px; right: 100px">
+  <input onclick="location.href='index.html'" value="Cancel" type="button" name="Cancel">
+  <input value="Update" type="button" name="Update" onclick="editRequest()">
+  <input value="Delete" type="button" name="Delete" onclick="deleteRequest()">
+</div>
+<label id="idNumber" style="visibility: hidden;">
+
+<script src="EditPage.js">
+</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZSmskwHEk_JY7kTpS3XdYAZ350bnY7Wo&libraries=places&callback=initMap"
+        async defer></script>
+</body>
+</html>

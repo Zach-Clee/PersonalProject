@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="StyleSheet.css" rel="stylesheet">
+    <style>
+       body {
+          background-color: #666;
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;}
+       /* Set the size of the div element that contains the map */
+        #map {
+        height: 500px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+    <a href="AddPage.html">Add</a>
+  <a href="Map.html">Map</a>
+</div>
+
+    <h3>Previous dive sites</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+
+<script>
+
+
+
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var startingLocation = {lat: 51.568742, lng: -1.8623451};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+  document.getElementById('map'), {zoom: 2, center: startingLocation});
+  markersToMap(map);
+}
+
+function markersToMap(map){
+  const Http = new XMLHttpRequest();
+  const url = 'http://localhost:9002/showAll';
+  Http.open("GET", url);
+  Http.onreadystatechange = function(e){
+    if (Http.readyState==4){
+    data=JSON.parse(Http.responseText);
+    var A=0;
+    data.forEach(function(item){
+      var geoLat = item.geolat;
+      var geoLong = item.geolong;
+      // The location of Uluru
+      var markerLocation = {lat: geoLat, lng: geoLong};
+      // The marker, positioned at Uluru
+      var marker = new google.maps.Marker({position: markerLocation, map: map});
+      marker.addListener('click', function() {
+        location.replace("EditPage.html#"+item.diveid);
+      });
+      A=A+1;
+    });
+  }
+} 
+  Http.send();
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZSmskwHEk_JY7kTpS3XdYAZ350bnY7Wo&callback=initMap">
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
