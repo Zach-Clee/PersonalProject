@@ -1,6 +1,16 @@
 var lat;
 var lng;
 
+function notDisabled(){
+  var boatname = document.getElementById("boatname");
+  boatname.disabled = false;
+}
+function isDisabled(){
+  var boatname = document.getElementById("boatname");
+  boatname.value = "";
+  boatname.disabled = true;
+}
+
 function sendRequest(){
   if (checkValues()){
 const Http = new XMLHttpRequest();
