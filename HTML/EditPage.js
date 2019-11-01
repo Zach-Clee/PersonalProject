@@ -15,7 +15,7 @@ function isDisabled(){
 function deleteRequest(){
 if (deleteConfirmation()){
 const Http = new XMLHttpRequest();
-const url='http://+location.hostname+:9002/deleteById/';
+const url='http://35.246.94.238:9002/deleteById/';
 Http.open("DELETE", url,true);
 Http.setRequestHeader("Content-Type", "application/json");
 const fd = {
@@ -63,7 +63,7 @@ function numberFormat(input){
 function editRequest(){
   if (checkValues()){
 const Http = new XMLHttpRequest();
-const url='http://+location.hostname+:9002/update/';
+const url='http://35.246.94.238:9002/update/';
 Http.open("POST", url,true);
 Http.setRequestHeader("Content-Type", "application/json");
 const fd = {
@@ -111,7 +111,7 @@ function dateformat(){
 
 function getStudent(input){
   const Http = new XMLHttpRequest();
-  const url = 'http://+location.hostname+:9002/findById/' + input;
+  const url = 'http://35.246.94.238:9002/findById/' + input;
   Http.open("GET", url);
   Http.onreadystatechange = function(e){
   if (Http.readyState==4){
