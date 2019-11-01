@@ -14,7 +14,7 @@ function isDisabled(){
 function sendRequest(){
   if (checkValues()){
 const Http = new XMLHttpRequest();
-const url='http://35.246.94.238:9002/save/';
+const url='http://+location.hostname+:9002/save/';
 Http.open("POST", url,true);
 Http.setRequestHeader("Content-Type", "application/json");
 const fd = {
