@@ -230,8 +230,18 @@ function checkValues(){
       success = false;
     }
 
+
+    if(ref3.value >= ref4.value){
+      success = false;
+    }
+    
+    if(ref5.value >= ref6.value){
+      success = false;
+    }
+
+
     if (success == false){
-      alert("Please check details. Something is missing");
+      alert("Please check details. Something is missing or wrong.");
       console.log("Entry not added");
     }
 
