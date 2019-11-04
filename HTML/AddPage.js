@@ -12,9 +12,9 @@ function isDisabled(){
 }
 
 function sendRequest(){
- // if (checkValues()){
+//if (checkValues()){
 const Http = new XMLHttpRequest();
-const url='http://35.246.94.238:9002/save/';
+const url='http://35.246.94.238/:9002/save/';
 Http.open("POST", url,true);
 Http.setRequestHeader("Content-Type", "application/json");
 const fd = {
@@ -45,7 +45,8 @@ Http.send(JSON.stringify(fd));
 
  alert("Entry Added!")
  location.replace("index.html");
-}//}
+}
+//}
 
 function numberFormat(input){
   var start = input

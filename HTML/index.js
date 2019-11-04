@@ -1,6 +1,6 @@
 function studentsToTable(){
   const Http = new XMLHttpRequest();
-  const url = 'http://35.246.94.238:9002/showAll';
+  const url = 'http://localhost:9002/showAll';
   Http.open("GET", url);
   Http.onreadystatechange = function(e){
   if (Http.readyState==4){
