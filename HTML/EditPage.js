@@ -61,7 +61,7 @@ function numberFormat(input){
 }
 
 function editRequest(){
-  if (checkValues()){
+ // if (checkValues()){
 const Http = new XMLHttpRequest();
 const url='http://35.246.94.238:9002/update/';
 Http.open("POST", url,true);
@@ -93,7 +93,7 @@ Http.onreadystatechange = function(ev) {
 Http.send(JSON.stringify(fd));
 alert("Entry Updated!");
 location.replace("index.html");
-}}
+//
 
 function ValidateInputs(input) {
 var rates = document.getElementsByName(input);
